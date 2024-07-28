@@ -22,7 +22,7 @@ int uname_run(int argc, char **argv)
 	int space = 0;
 	int print_mask = 0;
 
-	while ((c = getopt(argc, argv, "amnrsvp")) != -1 ) {
+	while ((c = getopt(argc, argv, "amnorsv")) != -1 ) {
 		switch (c) {
 		case 'a':
 			print_mask |= PRINT_SYSNAME | PRINT_NODENAME | PRINT_RELEASE |
