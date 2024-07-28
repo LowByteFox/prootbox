@@ -14,9 +14,16 @@ fn(uname);
 
 int main(int argc, char **argv)
 {
-    if (strcmp(strrchr(*argv, '/') + 1, "prootbox") == 0) {
-        argv++;
-        argc--;
+    char *maybe_path = strrchr(*argv, '/');
+    if (maybe_path == NULL) {
+        if (strcmp(*argv, "prootbox") == 0)
+            goto adjustment;
+    } else {
+        if (strcmp(maybe_path + 1, "prootbox") == 0) {
+adjustment:
+            argv++;
+            argc--;
+        }
     }
 
     check_cmd(uname, argc, argv);
