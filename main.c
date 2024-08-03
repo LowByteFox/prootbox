@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: BSD-2-Clause */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,6 +12,7 @@ static void usage(void);
 int run_command(const char *name, const char *arg);
 
 fn(uname);
+fn(mkdir);
 
 int main(int argc, char **argv)
 {
@@ -27,6 +29,7 @@ adjustment:
     }
 
     check_cmd(uname, argc, argv);
+    check_cmd(mkdir, argc, argv);
 
     usage();
 }
