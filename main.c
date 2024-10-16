@@ -36,7 +36,8 @@ adjustment:
 
 int run_command(const char *name, const char *arg)
 {
-    char *maybe_path = strrchr(arg, '/');
+    char *maybe_path = strrchr(arg, '/');   
+
     if (maybe_path == NULL)
         return strcmp(name, arg) == 0;
 
@@ -45,6 +46,6 @@ int run_command(const char *name, const char *arg)
 
 static void usage(void)
 {
-    fprintf(stderr, "bin: uname\n");
+    fprintf(stderr, "bin: uname mkdir\n");
     exit(1);
 }
