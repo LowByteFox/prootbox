@@ -16,6 +16,8 @@ fn(mkdir);
 
 int main(int argc, char **argv)
 {
+    int adjusted = 0;
+
     char *maybe_path = strrchr(*argv, '/');
     if (maybe_path == NULL) {
         if (strcmp(*argv, "prootbox") == 0)
@@ -25,13 +27,15 @@ int main(int argc, char **argv)
 adjustment:
             argv++;
             argc--;
+            adjusted = 1;
         }
     }
 
+    if (argc == 0 && adjusted != 0)
+        usage();
+
     check_cmd(uname, argc, argv);
     check_cmd(mkdir, argc, argv);
-
-    usage();
 }
 
 int run_command(const char *name, const char *arg)
